@@ -1,10 +1,11 @@
 import React from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
-import Auth from '../pages/Auth';
-import Bets from '../pages/Bets';
-import Game from '../pages/Game';
-import Registration from '../pages/Registration';
-import ResetPassword from '../pages/ResetPassword';
+
+import Auth from '@pages/Auth';
+import Bets from '@pages/Bets';
+import Game from '@pages/Game';
+import Registration from '@pages/Registration';
+import ResetPassword from '@pages/ResetPassword';
 
 export default function ContainerRoutes() {
 	return (
