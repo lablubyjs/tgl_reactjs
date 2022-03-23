@@ -14,6 +14,7 @@
       "@routes/*": ["./src/routes/*"],
       "@store/*": ["./src/store/*"],
       "@types/*": ["./src/types/*"],
+      "@shared/*": ["./src/shared/*"],
     },
     "allowJs": true,
     "skipLibCheck": true,
