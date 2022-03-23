@@ -19,8 +19,3 @@ export type InputProps = {
 	children: React.InputHTMLAttributes<any>;
 	error?: FieldError;
 };
-
-export type ControlledInputProps = InputProps & {
-	control: Control<any>;
-	name: string;
-};
