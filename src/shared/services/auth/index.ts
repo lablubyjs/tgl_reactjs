@@ -1,4 +1,5 @@
-import { IResetResponse } from '@shared/interfaces/AuthInterfaces';
+import { IChangeResponse, IResetResponse } from '@shared/interfaces/AuthInterfaces';
+import { config } from 'process';
 import { IBodyAuth, ILoginResponse } from '../../interfaces';
 import instance from '../axios.config';
 import { IAuth } from './interfaces';
@@ -12,7 +13,11 @@ const authServices = (): IAuth => {
       return instance.post('/reset', body);
 	}
 
-	return { login, resetPassword };
+	async function changePassword(body: IBodyAuth, token: string): Promise<IChangeResponse> {
+      return instance.post(`/reset/${token}`, body);
+	}
+
+	return { login, resetPassword, changePassword };
 };
 
 export default authServices;
