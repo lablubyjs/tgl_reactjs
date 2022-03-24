@@ -1,5 +1,5 @@
 export interface IBodyAuth {
-	email: string;
+	email?: string;
 	password?: string;
 }
 
@@ -35,4 +35,13 @@ export interface IResetResponse {
 	tokenCreatedAt: Date;
 	createdAt: Date;
 	updatedAt: Date;
+}
+
+export interface IChangeResponse {
+	id: number;
+	email: string;
+	is_admin: number;
+	name: string;
+	created_at: string;
+	updated_at: string;
 }
