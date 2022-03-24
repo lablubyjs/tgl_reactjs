@@ -1,5 +1,4 @@
-import { IBodyAuth, ILoginResponse } from '@shared/interfaces';
-import { IChangeResponse, IResetResponse } from '@shared/interfaces/AuthInterfaces';
+import { IBodyAuth, ILoginResponse, IChangeResponse, IResetResponse} from '@shared/interfaces';
 
 export interface IAuth {
 	login: ({ email, password }: IBodyAuth) => Promise<ILoginResponse>;

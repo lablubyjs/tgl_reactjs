@@ -1,4 +1,5 @@
 import authServices from './auth';
-import createUserServices from './user';
+import userServices from './user';
+import gamesServices from './games';
 
-export { authServices, createUserServices };
+export { authServices, userServices, gamesServices };

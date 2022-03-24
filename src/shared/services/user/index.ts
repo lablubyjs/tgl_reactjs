@@ -3,7 +3,7 @@ import {
 	ICreateUserResponse,
 	IMyAccountResponse,
 	IUpdateUserResponse,
-} from '@shared/interfaces/UserInterfaces';
+} from '@shared/interfaces';
 import instance from '../axios.config';
 import { IUser } from './interfaces';
 
