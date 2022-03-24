@@ -6,14 +6,15 @@
       "dom.iterable",
       "esnext"
     ],
+    "typeRoots": ["src/types"],
     "baseUrl": ".",
     "paths": {
       "@assets/*": ["./src/assets/*"],
       "@components/*": ["./src/components/*"],
       "@pages/*": ["./src/pages/*"],
       "@routes/*": ["./src/routes/*"],
-      "@store/*": ["./src/store/*"],
-      "@types/*": ["./src/types/*"],
+      "@store/*": ["src/store/*"],
+      "@types/*": ["src/types/*"],
       "@shared/*": ["./src/shared/*"],
     },
     "allowJs": true,
