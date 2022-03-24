@@ -1,5 +1,10 @@
+import {
+	IListBetsResponse,
+	IListGamesReponse,
+	ILoginResponse,
+} from '@shared/interfaces';
 import React from 'react';
-import { Control, FieldError } from 'react-hook-form';
+import { FieldError } from 'react-hook-form';
 
 export type ButtonProps = {
 	arrow: string;
@@ -19,3 +24,7 @@ export type InputProps = {
 	children: React.InputHTMLAttributes<any>;
 	error?: FieldError;
 };
+
+export type PropsProtect = {
+	component: JSX.Element
+}
