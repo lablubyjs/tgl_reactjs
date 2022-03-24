@@ -12,3 +12,9 @@ export type { IBodyGames } from './GamesInterfaces';
 export type { ICreateGameResponse } from './GamesInterfaces';
 export type { IUpdateGameResponse } from './GamesInterfaces';
 export type { IListGamesReponse } from './GamesInterfaces';
+
+export type { IBodyBet } from './BetsInterfaces';
+export type { IGame } from './BetsInterfaces';
+export type { IListBetsResponse } from './BetsInterfaces';
+export type { INewBetResponse } from './BetsInterfaces';
+
