@@ -18,7 +18,7 @@ import { useForm } from 'react-hook-form';
 
 import { FormValues } from '../../types/index';
 
-export default function Auth() {
+export default function Auth(): JSX.Element {
 	const navigate = useNavigate();
 	const { login } = authServices();
 
@@ -40,7 +40,6 @@ export default function Auth() {
 	};
 
 	const onLoginHandler = async (data: FormValues) => {
-		console.log(data);
 
 		try {
 			const response = await toast.promise(
@@ -55,7 +54,10 @@ export default function Auth() {
 				}
 			);
 
-			navigate('/bets');
+			localStorage.setItem('token', response.token.token);
+
+			navigate('/home');
+
 		} catch (error: any) {
 			if (error.status === 401) {
 				toast.error(error.data.message);

@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Game() {
+function Game(): JSX.Element {
 	return <div>Game Page</div>;
 }
 

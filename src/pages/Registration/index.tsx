@@ -8,7 +8,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import InputContainer from '@components/InputContainer';
 import Button from '@components/Button';
 
-import { createUserServices } from '../../shared/services';
+import { userServices } from '../../shared/services';
 
 import { toast } from 'react-toastify';
 
@@ -20,7 +20,7 @@ import { FormValues } from '../../types/index';
 
 export default function Auth() {
 	const navigate = useNavigate();
-	const { createUser } = createUserServices();
+	const { createUser } = userServices();
 
 	const schema = yup.object().shape({
 		email: yup.string().email('Invalid email').required('Informe um email'),
