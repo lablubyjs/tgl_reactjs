@@ -18,3 +18,4 @@ export type { IGame } from './BetsInterfaces';
 export type { IListBetsResponse } from './BetsInterfaces';
 export type { INewBetResponse } from './BetsInterfaces';
 
+export type { ICart } from './CartInterfaces';

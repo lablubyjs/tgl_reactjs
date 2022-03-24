@@ -10,7 +10,7 @@ const instance = axios.create({
 
 instance.interceptors.request.use(
 	async (config) => {
-		const isToken = false;
+		const isToken = localStorage.getItem('token');
 
 		if (isToken) {
 			config.headers!.Authorization = 'Bearer ' + isToken;
@@ -26,7 +26,7 @@ instance.interceptors.request.use(
 
 instance.interceptors.response.use(
 	async (response) => {
-		return response;
+		return response.data;
 	},
 	function (error: AxiosError) {
 		console.log('error no interceptor', error);
