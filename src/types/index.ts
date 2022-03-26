@@ -7,11 +7,12 @@ import React from 'react';
 import { FieldError } from 'react-hook-form';
 
 export type ButtonProps = {
-	arrow: string;
+	arrow?: string;
 	goTo: string;
 	onGoTo?: () => void;
 	fontSize: number;
 	color: string;
+	showIcon?: boolean;
 };
 
 export type FormValues = {
@@ -27,4 +28,14 @@ export type InputProps = {
 
 export type PropsProtect = {
 	component: JSX.Element
+}
+
+export type HeaderProps = {
+	showHomeLink: boolean
+}
+
+export type ButtonGameProps = {
+	name: string
+	color: string
+	isSelected: boolean;
 }
