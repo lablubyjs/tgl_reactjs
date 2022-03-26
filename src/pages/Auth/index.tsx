@@ -54,9 +54,10 @@ export default function Auth(): JSX.Element {
 				}
 			);
 
+			navigate('/home', {replace: true});
+			
 			localStorage.setItem('token', response.token.token);
 
-			navigate('/home');
 
 		} catch (error: any) {
 			if (error.status === 401) {
