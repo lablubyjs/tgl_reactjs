@@ -5,13 +5,16 @@ import { ButtonProps } from '../../types/index';
 
 
 function Button(props: ButtonProps): JSX.Element {
+
+	const showIcon = props.showIcon !== undefined ? props.showIcon : true
+
 	const button =
 		props.arrow === 'left' ? (
 			<ButtonContainer
 				onClick={props.onGoTo}
 				fontSize={props.fontSize}
 				color={props.color}>
-				<BsArrowLeft />
+				{showIcon && <BsArrowLeft />}
 				{props.goTo}
 			</ButtonContainer>
 		) : (
@@ -20,7 +23,7 @@ function Button(props: ButtonProps): JSX.Element {
 				fontSize={props.fontSize}
 				color={props.color}>
 				{props.goTo}
-				<BsArrowRight />
+				{showIcon && <BsArrowRight />}
 			</ButtonContainer>
 		);
 
