@@ -9,14 +9,14 @@ const initialUserState: ILoginResponse = {
 		name: '',
 		token: null,
 		tokenCreatedAt: null,
-		createdAt: 'new Date(2021, 1, 10)',
-		updatedAt: 'new Date(2021, 2, 10)',
+		createdAt: '10 06 2015',
+		updatedAt: '10 06 2015',
 		picture: null,
 	},
 	token: {
 		type: '',
-		token: localStorage.getItem('token')!,
-		expiresAt: 'new Date(2021, 3, 10)',
+		token: '',
+		expiresAt: '10 06 2015',
 	},
 };
 
@@ -29,7 +29,6 @@ const userSlice = createSlice({
 		addUser(state, action: PayloadAction<ILoginResponse>) {
 			state.user = action.payload.user;
 			state.token = action.payload.token;
-			localStorage.setItem('token', action.payload.token.token);
 		},
 
 		removeUser(state) {
