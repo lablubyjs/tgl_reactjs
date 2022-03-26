@@ -11,7 +11,7 @@ export interface ILoginResponse {
 interface Token {
 	type: string;
 	token: string;
-	expiresAt: Date;
+	expiresAt: string;
 }
 
 interface User {
@@ -21,8 +21,8 @@ interface User {
 	name: string;
 	token: null;
 	tokenCreatedAt: null;
-	createdAt: Date;
-	updatedAt: Date;
+	createdAt: string;
+	updatedAt: string;
 	picture: null;
 }
 
@@ -32,9 +32,9 @@ export interface IResetResponse {
 	isAdmin: number;
 	name: string;
 	token: string;
-	tokenCreatedAt: Date;
-	createdAt: Date;
-	updatedAt: Date;
+	tokenCreatedAt: string;
+	createdAt: string;
+	updatedAt: string;
 }
 
 export interface IChangeResponse {

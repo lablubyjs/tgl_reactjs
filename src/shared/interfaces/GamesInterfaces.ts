@@ -23,10 +23,10 @@ export interface IUpdateGameResponse {
 
 export interface IListGamesReponse {
 	minCartValue: number;
-	types: Type[];
+	types: GameType[];
 }
 
-interface Type {
+export interface GameType {
 	id: number;
 	type: string;
 	description: string;
@@ -34,4 +34,5 @@ interface Type {
 	price: number;
 	maxNumber: number;
 	color: string;
+	isSelected?: boolean;
 }
