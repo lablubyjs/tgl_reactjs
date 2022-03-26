@@ -4,7 +4,7 @@ import { useAppSelector } from 'src/hooks';
 import { Navigate } from 'react-router-dom';
 
 const ProtectRouter = ({ component }: PropsProtect): JSX.Element => {
-	const { token } = useAppSelector((state) => state.user.token);
+	const token = localStorage.getItem('token');
 
 	if (!token) {
 		return <Navigate to='/auth' />;
