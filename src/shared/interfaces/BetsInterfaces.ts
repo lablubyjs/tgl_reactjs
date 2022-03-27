@@ -8,6 +8,10 @@ export interface IGame {
 }
 
 export interface IListBetsResponse {
+	bets: Bet[]
+}
+
+interface Bet {
 	id: number;
 	userID: number;
 	gameID: number;

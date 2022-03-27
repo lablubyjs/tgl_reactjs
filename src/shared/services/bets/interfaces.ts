@@ -5,6 +5,6 @@ import {
 } from '@shared/interfaces';
 
 export interface IBets {
-	listBet: () => Promise<IListBetsResponse>;
+	listBet: (url: string) => Promise<IListBetsResponse>;
 	newBet: ({ games }: IBodyBet) => Promise<INewBetResponse>;
 }

@@ -3,8 +3,8 @@ import instance from '../axios.config';
 import { IBets } from './interfaces';
 
 const betsServices = (): IBets => {
-	async function listBet(): Promise<IListBetsResponse> {
-		return instance.get('/bet/all-bets');
+	async function listBet(url: string): Promise<IListBetsResponse> {
+		return instance.get(url);
 	}
 
 	async function newBet(body: IBodyBet): Promise<INewBetResponse> {
