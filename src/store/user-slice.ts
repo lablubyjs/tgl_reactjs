@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { ILoginResponse } from '@shared/interfaces';
 
 const initialUserState: ILoginResponse = {
@@ -17,7 +17,7 @@ const initialUserState: ILoginResponse = {
 		type: '',
 		token: '',
 		expiresAt: '10 06 2015',
-	},
+	}
 };
 
 const userSlice = createSlice({
@@ -27,8 +27,7 @@ const userSlice = createSlice({
 
 	reducers: {
 		addUser(state, action: PayloadAction<ILoginResponse>) {
-			state.user = action.payload.user;
-			state.token = action.payload.token;
+			state = action.payload;
 		},
 
 		removeUser(state) {
@@ -36,8 +35,26 @@ const userSlice = createSlice({
 			localStorage.removeItem('token');
 		},
 	},
+
+	extraReducers: (builder) => {
+		builder.addCase(
+			asyncAddUser.fulfilled,
+			(state, action: PayloadAction<ILoginResponse>) => {
+				state = action.payload;
+				console.log('adding user', action.payload)
+				console.log(state)
+			}
+		);
+	},
 });
 
-export const userActions = userSlice.actions;
+export const { addUser, removeUser } = userSlice.actions;
 
 export default userSlice.reducer;
+
+export const asyncAddUser = createAsyncThunk(
+	'user/fetchAddUser',
+	async (response: ILoginResponse) => {
+		return response;
+	}
+);
