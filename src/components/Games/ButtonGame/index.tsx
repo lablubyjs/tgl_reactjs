@@ -4,7 +4,7 @@ import { Button } from './styles';
 
 const ButtonGame = (props: ButtonGameProps) => {
 	return (
-		<Button color={props.color} isSelected={props.isSelected}>
+		<Button color={props.color} isSelected={props.isSelected} onClick={props.onClick}>
 			{props.name}
 		</Button>
 	);

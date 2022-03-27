@@ -1,30 +1,39 @@
-import { asyncAddGames } from '@store/games-slice';
-import { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from 'src/hooks';
 import ButtonGame from '../ButtonGame';
+import { addQuery, asyncAddBets, removeQuery } from '@store/bets-slice';
+import { selectGame } from '@store/games-slice';
+import { ButtonsGamesContainer } from './styles';
 
 const ButtonsGames = (): JSX.Element => {
+	const listGamesStore = useAppSelector((state) => state.games.list);
 	const dispatch = useAppDispatch();
-
-	const listGamesStore = useAppSelector((state) => state.games);
-
-	useEffect(() => {
-		dispatch(asyncAddGames());
-	}, []);
+	const url = useAppSelector((state) => state.bets.querys.join(''));
 
 	return (
-		<div>
-			{Object.keys(listGamesStore).map((listkey) =>
-				Object.keys(listkey).map((key) => {
-					console.log(listGamesStore.list[key].type);
+		<ButtonsGamesContainer>
+			{Object.keys(listGamesStore).map((key: any) => {
+				const OnClickHandler = () => {
+					const type = `type%5B%5D=${listGamesStore[key].type}&`;
+
+					if (url.includes(type)) {
+						dispatch(removeQuery(listGamesStore[key].type));
+					} else {
+						dispatch(addQuery(listGamesStore[key].type));
+					}
+					dispatch(selectGame(listGamesStore[key].id));
+				};
+
+				return (
 					<ButtonGame
-						name={'listGamesStore.list[key].type'}
-						color={'listGamesStore.list[key].color'}
-						isSelected={false}
-					/>;
-				})
-			)}
-		</div>
+						onClick={OnClickHandler}
+						key={listGamesStore[key].id}
+						name={listGamesStore[key].type}
+						color={listGamesStore[key].color}
+						isSelected={listGamesStore[key].isSelected ? true : false}
+					/>
+				);
+			})}
+		</ButtonsGamesContainer>
 	);
 };
 
