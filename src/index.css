@@ -16,6 +16,20 @@ body {
 	background-color: var(--background);
 }
 
+body::-webkit-scrollbar {
+	width: 8px;
+}
+
+body::-webkit-scrollbar-track {
+	background: var(--light-grey);
+}
+
+body::-webkit-scrollbar-thumb {
+	background-color: var(--grey);
+	border-radius: 10px;
+	border: 2px solid var(--light-grey);
+}
+
 code {
 	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
 		monospace;
