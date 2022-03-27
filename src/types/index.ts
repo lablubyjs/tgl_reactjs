@@ -38,4 +38,5 @@ export type ButtonGameProps = {
 	name: string
 	color: string
 	isSelected: boolean;
+	onClick: () => void
 }
