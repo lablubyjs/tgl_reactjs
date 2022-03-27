@@ -17,9 +17,12 @@ import * as yup from 'yup';
 import { useForm } from 'react-hook-form';
 
 import { FormValues } from '../../types/index';
+import { addUser } from '@store/user-slice';
+import { useAppDispatch } from 'src/hooks';
 
 export default function Auth(): JSX.Element {
 	const navigate = useNavigate();
+	const dispatch = useAppDispatch();
 	const { login } = authServices();
 
 	const schema = yup.object().shape({
@@ -40,7 +43,6 @@ export default function Auth(): JSX.Element {
 	};
 
 	const onLoginHandler = async (data: FormValues) => {
-
 		try {
 			const response = await toast.promise(
 				login({
@@ -54,10 +56,11 @@ export default function Auth(): JSX.Element {
 				}
 			);
 
-			navigate('/home', {replace: true});
-			
+			dispatch(addUser(response));
+
 			localStorage.setItem('token', response.token.token);
 
+			navigate('/home', { replace: true });
 
 		} catch (error: any) {
 			if (error.status === 401) {

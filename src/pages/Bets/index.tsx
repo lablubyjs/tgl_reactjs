@@ -5,6 +5,7 @@ import Header from '@components/Header';
 import React from 'react';
 
 function Bets(): JSX.Element {
+
 	return (
 		<Container>
 			<Header showHomeLink={false} />
