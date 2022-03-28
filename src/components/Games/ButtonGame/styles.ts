@@ -7,14 +7,19 @@ interface IButtonGameProps {
 }
 
 export const Button = styled.button<IButtonGameProps>`
-	color: ${(props) => (props.isSelected ? '#ffffff' : props.color)};
+	color: ${(props) => (props.isSelected ? 'var(--white)' : props.color)};
 	background-color: ${(props) =>
 		props.isSelected ? props.color : 'transparent'};
 	width: 113px;
 	height: 34px;
 	border-radius: 100px;
 	border: 2px solid ${(props) => props.color};
-   font-style: italic;
-   font-weight: bold;
-   text-transform: capitalize;
+	font-style: italic;
+	font-weight: bold;
+	text-transform: capitalize;
+
+	:hover {
+		color: var(--white);
+		background-color: ${(props) => props.color};
+	}
 `;
