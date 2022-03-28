@@ -1,5 +1,8 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { ILoginResponse } from '@shared/interfaces';
+import { userServices } from '@shared/services';
+
+const {myAccount} = userServices()
 
 const initialUserState: ILoginResponse = {
 	user: {
@@ -39,8 +42,8 @@ const userSlice = createSlice({
 	extraReducers: (builder) => {
 		builder.addCase(
 			asyncAddUser.fulfilled,
-			(state, action: PayloadAction<ILoginResponse>) => {
-				state = action.payload;
+			(state, action) => {
+				state.user = action.payload;
 				console.log('adding user', action.payload)
 				console.log(state)
 			}
@@ -54,7 +57,8 @@ export default userSlice.reducer;
 
 export const asyncAddUser = createAsyncThunk(
 	'user/fetchAddUser',
-	async (response: ILoginResponse) => {
+	async () => {
+		const response = await myAccount()
 		return response;
 	}
 );
