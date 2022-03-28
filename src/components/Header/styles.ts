@@ -50,3 +50,37 @@ export const Navigation = styled.nav`
 	gap: 4rem;
 	margin-right: 5rem;
 `;
+
+export const UserAccountContainer = styled.div`
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.5rem;
+	color: var(--grey);
+
+	svg {
+		font-size: 3rem;
+	}
+
+	h1 {
+		font-style: italic;
+		font-weight: bold;
+	}
+
+	button {
+		width: 113px;
+		height: 34px;
+		border-radius: 100px;
+		border: 2px solid var(--light-green);
+		font-style: italic;
+		font-weight: bold;
+		text-transform: capitalize;
+		color: var(--light-green);
+		background-color: transparent;
+	}
+
+	button:hover {
+		color: var(--white);
+		background-color: var(--light-green);
+	}
+`;
