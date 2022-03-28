@@ -3,19 +3,12 @@ import ButtonGame from '@components/Games/ButtonGame';
 import ButtonsGames from '@components/Games/ButtonsGames';
 import { asyncAddBets } from '@store/bets-slice';
 import React, { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from 'src/hooks';
 import valueFormat, { getGameColor } from 'src/utils';
 import { Bet, ContainerBets, HeaderBets } from './styles';
 
-import { Swiper, SwiperSlide } from 'swiper/react';
-
-// import required modules
-import { Pagination } from 'swiper';
-
-// Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/pagination';
+import EmptyMessage from '@components/EmptyMessage';
 
 const BetsContainer = (): JSX.Element => {
 	const games = useAppSelector((state) => state.games.list);
@@ -31,6 +24,7 @@ const BetsContainer = (): JSX.Element => {
 	const goToHandler = () => {
 		navigate('/games');
 	};
+	
 
 	useEffect(() => {
 		dispatch(asyncAddBets(url));
@@ -69,6 +63,15 @@ const BetsContainer = (): JSX.Element => {
 					</Bet>
 				);
 			})}
+
+			{Object.keys(bets).length === 0 && (
+				<EmptyMessage
+					message={`You don't have any bets yet...`}
+					type='BET'
+					fontSize={30}>
+					<Link to='/games'>Choose a bet?</Link>
+				</EmptyMessage>
+			)}
 		</ContainerBets>
 	);
 };
