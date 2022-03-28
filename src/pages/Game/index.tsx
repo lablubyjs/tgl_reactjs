@@ -6,7 +6,8 @@ import React from 'react';
 function Game(): JSX.Element {
 	return (
 		<Container>
-			<Header showHomeLink={false} />
+			<Header showHomeLink={true} />
+			
 			<Footer />
 		</Container>
 	);
