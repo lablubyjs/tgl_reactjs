@@ -41,8 +41,8 @@ export interface IMyAccountResponse {
 	name: string;
 	token: null;
 	tokenCreatedAt: null;
-	createdAt: Date;
-	updatedAt: Date;
-	bets: any[];
+	createdAt: string;
+	updatedAt: string;
+	bets?: any[];
 	picture: null;
 }
