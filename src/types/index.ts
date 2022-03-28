@@ -5,6 +5,7 @@ import {
 } from '@shared/interfaces';
 import React from 'react';
 import { FieldError } from 'react-hook-form';
+import { LinkProps } from 'react-router-dom';
 
 export type ButtonProps = {
 	arrow?: string;
@@ -27,16 +28,23 @@ export type InputProps = {
 };
 
 export type PropsProtect = {
-	component: JSX.Element
-}
+	component: JSX.Element;
+};
 
 export type HeaderProps = {
-	showHomeLink: boolean
-}
+	showHomeLink: boolean;
+};
 
 export type ButtonGameProps = {
-	name: string
-	color: string
+	name: string;
+	color: string;
 	isSelected: boolean;
-	onClick: () => void
-}
+	onClick: () => void;
+};
+
+export type EmptyMessageProps = {
+	message: string;
+	type: string;
+	fontSize: number;
+	children: any;
+};
