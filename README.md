@@ -1,46 +1,39 @@
-# Getting Started with Create React App
+# Prova Final React
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+O último teste do módulo de React consiste em criar todas as páginas seguindo este
+<a href="https://xd.adobe.com/view/4bd3fba7-f671-4202-b5e2-17137367ef1d-1e80/screen/8497f9e8-5eff-4ae8-8380-b1874cd674c0/">protótipo</a>
 
-## Available Scripts
+Para concluir o teste, deve-se usar todo o conhecimento adquirido no curso React – The Complete Guide.
 
-In the project directory, you can run:
+Requisitos Não Funcionais
+      RNF01. Construir toda aplicação utilizando React (Hooks), StyledComponent e Redux.
 
-### `yarn start`
+      RNF02. Aplicar loading nos fluxos com await e feedbacks de sucesso ou erro para o usuário utilizando a lib do React Toastify
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+      RNF03. Clonar, executar e consumir API do repositório já descrito.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+      RNF04. Aplicar responsividade
 
-### `yarn test`
+      RNF05. Utilizar Typescript
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+      RNF06. Utilizar Axios para integração com a API
 
-### `yarn build`
+Requisitos Funcionais
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+      RF01. Validar formulário completo com Yup e React Hook Form no registro, login e no reset password (Consumir da API)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+      RF02. Autenticação (Consumir da API) 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+      RF03. Complete Game: para completar aleatoriamente os números
 
-### `yarn eject`
+      RF04. Clear game: limpar todos os números selecionados
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+      RF05. Add to cart: adicionar os números no carrinho
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+      RF06. Delete: apagar um item do carrinho (Modal de confirmação)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+      RF07. Save: adicionar jogos no redux (acima do valor retornado para a chave: min_cart_value) (Consumir da API) 
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+      RF08. Listar os jogos após cadastrados (Consumir da API) 
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+      RF09. Criar filtro para listagem e criação de jogos. (Consumir da API) 
