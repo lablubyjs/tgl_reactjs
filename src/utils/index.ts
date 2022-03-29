@@ -45,6 +45,7 @@ export const getGameColor = (games: any, id: number) => {
 	});
 
 	return gameSelected.color;
+
 };
 
 export const getGameName = (games: any, id: number) => {
