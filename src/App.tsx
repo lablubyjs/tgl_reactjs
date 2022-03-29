@@ -6,14 +6,16 @@ import 'react-toastify/dist/ReactToastify.min.css';
 import { useAppDispatch, useAppSelector } from './hooks';
 import { asyncAddGames } from '@store/games-slice';
 import { asyncAddBets } from '@store/bets-slice';
+import { asyncAddMinCartValue } from '@store/cart-slice';
 
 function App() {
 	const dispatch = useAppDispatch();
-	const url = useAppSelector(state => state.bets.querys.join(''))
+	const url = useAppSelector((state) => state.bets.querys.join(''));
 
 	useEffect(() => {
 		dispatch(asyncAddGames());
 		dispatch(asyncAddBets(url));
+		dispatch(asyncAddMinCartValue());
 	}, []);
 
 	return (
