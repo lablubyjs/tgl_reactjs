@@ -123,8 +123,25 @@ const Cart = () => {
 				{gamesInCart.map((game, index) => {
 					const price = getGamePriceNumber(games, game.game_id);
 
-					const removeToCartHandler = () => {
+					const dispatchHandler = () => {
+						setShowModal(false);
 						dispatch(removeToCart({ index, price }));
+					};
+
+					const removeToCartHandler = () => {
+						setShowModal(true);
+						setCartModal(
+							<Modal onClose={closeModal}>
+								<ContentModal>
+									<IoAlertCircleOutline />
+									<p>Do you really want to delete from cart?</p>
+									<div>
+										<ButtonModal onClick={dispatchHandler}>Confirm</ButtonModal>
+										<ButtonModal onClick={closeModal}>Cancel</ButtonModal>
+									</div>
+								</ContentModal>
+							</Modal>
+						);
 					};
 
 					return (
@@ -146,12 +163,14 @@ const Cart = () => {
 				})}
 			</GamesContainer>
 
-			<CartTotal>
-				<p>
-					<strong>CART </strong> TOTAL:{' '}
-					{valueFormat('PRICE', cartTotal.toString())}
-				</p>
-			</CartTotal>
+			{gamesInCart.length > 0 && (
+				<CartTotal>
+					<p>
+						<strong>CART </strong> TOTAL:{' '}
+						{valueFormat('PRICE', cartTotal.toString())}
+					</p>
+				</CartTotal>
+			)}
 
 			<ButtonSave>
 				<Button

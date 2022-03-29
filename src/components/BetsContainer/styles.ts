@@ -3,6 +3,12 @@ import styled from 'styled-components';
 export const ContainerBets = styled.div`
 	padding: 3rem 6rem;
 	min-height: 68vh;
+
+	@media (max-width: 1030px) {
+		width: auto;
+
+		overflow: hidden;
+	}
 `;
 
 export const HeaderBets = styled.div`
@@ -11,6 +17,21 @@ export const HeaderBets = styled.div`
 	align-items: center;
 	margin-bottom: 2rem;
 	justify-content: space-between;
+
+	@media (max-width: 1030px) {
+		h1 {
+			font-size: 15px;
+		}
+
+		h3 {
+			font-size: 10px;
+		}
+	}
+
+	@media (max-width: 800px) {
+		flex-direction: column;
+		flex-wrap: wrap;
+	}
 
 	div {
 		display: inherit;
@@ -85,4 +106,15 @@ export const ButtonsGamesContainer = styled.div`
    button {
       margin: 0.5rem;
    }
+
+	@media (max-width: 1030px) {
+		margin: 0.5rem;
+
+		button {
+			margin: 0.25rem;
+			width: 80px;
+			height: 35px;
+			font-size: 10px;
+		}
+	}
 `

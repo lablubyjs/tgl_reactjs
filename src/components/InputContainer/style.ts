@@ -43,3 +43,8 @@ export const InputContent = styled.label`
 		border-color: red;
 	}
 `;
+
+export const Error = styled.div`
+	padding: 1rem;
+	color: red;
+`
