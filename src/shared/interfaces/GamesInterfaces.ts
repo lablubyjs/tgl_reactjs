@@ -3,7 +3,7 @@ export interface IBodyGames {
 	description: string;
 	range: number;
 	price: number;
-	maxNumber: number;
+	max_number: number;
 	color: string;
 }
 
@@ -15,7 +15,7 @@ export interface IUpdateGameResponse {
 	description: string;
 	range: number;
 	price: number;
-	maxNumber: number;
+	max_number: number;
 	color: string;
 	createdAt: Date;
 	updatedAt: Date;
@@ -32,7 +32,7 @@ export interface GameType {
 	description: string;
 	range: number;
 	price: number;
-	maxNumber: number;
+	max_number: number;
 	color: string;
 	isSelected?: boolean;
 }

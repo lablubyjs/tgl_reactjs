@@ -11,12 +11,12 @@ export interface IGames {
 		description,
 		range,
 		price,
-		maxNumber,
+		max_number,
 		color,
 	}: IBodyGames) => Promise<ICreateGameResponse>;
 
 	updateGame: (
-		{ type, description, range, price, maxNumber, color }: IBodyGames,
+		{ type, description, range, price, max_number, color }: IBodyGames,
 		id: string
 	) => Promise<IUpdateGameResponse>;
 
