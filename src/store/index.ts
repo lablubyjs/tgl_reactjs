@@ -4,6 +4,7 @@ import {
 	Action,
 } from '@reduxjs/toolkit';
 import betsSlice from './bets-slice';
+import cartSlice from './cart-slice';
 import gamesSlice from './games-slice';
 import userSlice from './user-slice';
 
@@ -12,6 +13,7 @@ const store = configureStore({
 		user: userSlice,
 		bets: betsSlice,
 		games: gamesSlice,
+		cart: cartSlice,
 	},
 });
 

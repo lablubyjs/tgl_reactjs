@@ -16,6 +16,9 @@ const cartSlice = createSlice({
 		addToCart(state, action: PayloadAction<{ game: IGame; price: number }>) {
 			state.games.push(action.payload.game);
 			state.cartTotal += action.payload.price;
+
+			console.log('add to cart')
+
 		},
 
 		removeToCart(state, action: PayloadAction<{ id: number; price: number }>) {
@@ -25,6 +28,6 @@ const cartSlice = createSlice({
 	},
 });
 
-export const cartActions = cartSlice.actions;
+export const { addToCart, removeToCart } = cartSlice.actions;
 
 export default cartSlice.reducer;
