@@ -1,6 +1,6 @@
 import { useAppDispatch, useAppSelector } from 'src/hooks';
 import ButtonGame from '../ButtonGame';
-import { addQuery, asyncAddBets, removeQuery } from '@store/bets-slice';
+import { addQuery, removeQuery } from '@store/bets-slice';
 import { selectGame } from '@store/games-slice';
 import { ButtonsGamesContainer } from './styles';
 

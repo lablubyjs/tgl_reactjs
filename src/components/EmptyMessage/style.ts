@@ -16,6 +16,7 @@ export const MessageContainer = styled.div<IMessageContainerProps>`
 	font-style: italic;
 	font-weight: bold;
 	gap: 1.5rem;
+	text-align: center;
 
 	svg {
       font-size: ${(props) => props.fontSize + 20}px;
