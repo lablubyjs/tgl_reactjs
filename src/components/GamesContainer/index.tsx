@@ -82,7 +82,7 @@ const GamesContainer = () => {
 					onClick={() => {
 						dispatch(
 							addToCart({
-								game: {gameID: gameSelect.id, numbers: [0,0,0]},
+								game: {game_id: gameSelect.id, numbers: [1, 2, 3, 4, 5, 6]},
 								price: gameSelect.price,
 							})
 						);
