@@ -3,7 +3,7 @@ export interface IBodyBet {
 }
 
 export interface IGame {
-	gameID: number;
+	game_id: number;
 	numbers: number[];
 }
 

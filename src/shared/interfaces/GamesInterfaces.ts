@@ -22,7 +22,7 @@ export interface IUpdateGameResponse {
 }
 
 export interface IListGamesReponse {
-	minCartValue: number;
+	min_cart_value: number;
 	types: GameType[];
 }
 
