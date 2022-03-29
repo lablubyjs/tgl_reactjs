@@ -17,7 +17,7 @@ const initalGamesState: GamesSlice = {
 		description: '',
 		range: 0,
 		price: 0,
-		maxNumber: 0,
+		max_number: 0,
 		color: '',
 		isSelected: false,
 	},
