@@ -46,5 +46,5 @@ export type EmptyMessageProps = {
 	message: string;
 	type: string;
 	fontSize: number;
-	children: any;
+	children?: any;
 };
