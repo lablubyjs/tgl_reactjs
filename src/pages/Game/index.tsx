@@ -1,10 +1,13 @@
-import Cart from '@components/Cart';
-import Container from '@components/Container';
-import Content from '@components/Content';
-import Footer from '@components/Footer';
-import GamesContainer from '@components/GamesContainer';
-import Header from '@components/Header';
 import React from 'react';
+
+import {
+	Cart,
+	Container,
+	Content,
+	Footer,
+	GamesContainer,
+	Header,
+} from '@components/index';
 
 function Game(): JSX.Element {
 	return (

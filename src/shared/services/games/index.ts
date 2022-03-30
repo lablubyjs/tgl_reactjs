@@ -1,3 +1,5 @@
+import instance from '../axios.config';
+
 import {
 	ICreateUserResponse,
 	IBodyGames,
@@ -5,7 +7,7 @@ import {
 	IListGamesReponse,
 	IUpdateGameResponse,
 } from '@shared/interfaces';
-import instance from '../axios.config';
+
 import { IGames } from './interfaces';
 
 const gamesServices = (): IGames => {

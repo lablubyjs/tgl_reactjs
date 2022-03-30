@@ -1,5 +1,7 @@
-import { InputProps } from '../../types';
 import React from 'react';
+
+import { InputProps } from '../../types';
+
 import { Error, InputContent } from './style';
 
 function InputContainer(props: InputProps): JSX.Element {

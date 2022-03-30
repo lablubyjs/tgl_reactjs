@@ -118,6 +118,15 @@ export const UserAccountContainer = styled.div`
 		font-weight: bold;
 	}
 
+	div {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+		gap: 1rem;
+		margin: 3rem;
+	}
+
 	button {
 		width: 113px;
 		height: 34px;

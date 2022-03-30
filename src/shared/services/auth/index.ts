@@ -1,10 +1,12 @@
+import instance from '../axios.config';
+
 import {
 	IChangeResponse,
 	IResetResponse,
 	IBodyAuth,
 	ILoginResponse,
 } from '@shared/interfaces';
-import instance from '../axios.config';
+
 import { IAuth } from './interfaces';
 
 const authServices = (): IAuth => {

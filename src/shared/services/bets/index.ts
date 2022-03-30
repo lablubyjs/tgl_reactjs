@@ -1,5 +1,7 @@
-import { IBodyBet, IListBetsResponse, INewBetResponse } from '@shared/interfaces';
 import instance from '../axios.config';
+
+import { IBodyBet, IListBetsResponse, INewBetResponse } from '@shared/interfaces';
+
 import { IBets } from './interfaces';
 
 const betsServices = (): IBets => {

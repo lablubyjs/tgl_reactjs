@@ -8,7 +8,7 @@ import { addToCart } from '@store/cart-slice';
 
 import { useAppDispatch, useAppSelector } from 'src/hooks';
 
-import { completeArray, getGameColor } from 'src/utils';
+import { completeArray, getGameColor } from '@shared/utils';
 
 import {
 	ButtonGame,
@@ -25,7 +25,6 @@ import {
 } from './styles';
 
 const GamesContainer = (): JSX.Element => {
-
 	const listGamesStore = useAppSelector((state) => state.games.list);
 	const gameSelect = useAppSelector((state) => state.games.currentGame);
 	const games = useAppSelector((state) => state.games.list);
@@ -142,7 +141,7 @@ const GamesContainer = (): JSX.Element => {
 
 			{Array.from({ length: gameRange }).map((_, index) => {
 				let backgroundColor = '';
-				const indexNumber = index + 1
+				const indexNumber = index + 1;
 
 				numbers.indexOf(indexNumber) !== -1
 					? (backgroundColor = getGameColor(games, gameSelect.id))

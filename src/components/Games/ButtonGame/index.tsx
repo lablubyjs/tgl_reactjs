@@ -1,5 +1,7 @@
 import React from 'react';
+
 import { ButtonGameProps } from '../../../types';
+
 import { Button } from './styles';
 
 const ButtonGame = (props: ButtonGameProps) => {

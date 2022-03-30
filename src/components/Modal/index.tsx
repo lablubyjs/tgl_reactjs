@@ -1,7 +1,8 @@
 import { Fragment } from 'react';
+
 import ReactDOM from 'react-dom';
 
-import { BackdropContainer, ModalContainer, ModalOverlayContainer } from './style';
+import { BackdropContainer, ModalContainer, ModalOverlayContainer } from './styles';
 
 const Backdrop = (props: any) => {
 	return <BackdropContainer onClick={props.onClose} />;

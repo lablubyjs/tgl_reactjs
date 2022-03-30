@@ -1,7 +1,7 @@
-import { PropsProtect } from 'src/types/index';
 import React from 'react';
-import { useAppSelector } from 'src/hooks';
 import { Navigate } from 'react-router-dom';
+
+import { PropsProtect } from 'src/types/index';
 
 const ProtectRouter = ({ component }: PropsProtect): JSX.Element => {
 	const token = localStorage.getItem('token');

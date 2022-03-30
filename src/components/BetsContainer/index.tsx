@@ -1,24 +1,31 @@
-import Button from '@components/Button';
-import ButtonGame from '@components/Games/ButtonGame';
+import React, { useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+
+import {
+	formatDate,
+	formatNumbers,
+	formatValueToCurrency,
+	getGameColor,
+} from '@shared/utils';
+
+import { asyncAddGames, selectGame } from '@store/games-slice';
 import {
 	addQuery,
 	asyncAddBets,
 	removeQuery,
 	resetQuerys,
 } from '@store/bets-slice';
-import React, { useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+
 import { useAppDispatch, useAppSelector } from 'src/hooks';
-import valueFormat, { getGameColor } from 'src/utils';
+
+import { Button, ButtonGame, EmptyMessage } from '@components/index';
+
 import {
 	Bet,
 	ButtonsGamesContainer,
 	ContainerBets,
 	HeaderBets,
 } from './styles';
-
-import EmptyMessage from '@components/EmptyMessage';
-import { asyncAddGames, selectGame } from '@store/games-slice';
 
 const ButtonsGames = (): JSX.Element => {
 	const listGamesStore = useAppSelector((state) => state.games.list);
@@ -101,11 +108,11 @@ const BetsContainer = (): JSX.Element => {
 						<hr />
 						<div className='content'>
 							<p className='numbers'>
-								{valueFormat('NUMBERS', bets[key].choosen_numbers)}
+								{formatNumbers(bets[key].choosen_numbers)}
 							</p>
 							<p className='date-price'>
-								{valueFormat('DATE', bets[key].created_at)} - (
-								{valueFormat('PRICE', bets[key].price)})
+								{formatDate(bets[key].created_at)} - (
+								{formatValueToCurrency(bets[key].price)})
 							</p>
 							<p className='type'>{bets[key].type.type}</p>
 						</div>

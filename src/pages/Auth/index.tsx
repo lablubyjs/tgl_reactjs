@@ -1,17 +1,18 @@
-import { useForm } from 'react-hook-form';
-import { toast } from 'react-toastify';
 import { Link, useNavigate } from 'react-router-dom';
 
+import { toast } from 'react-toastify';
+
+import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import * as yup from 'yup';
+import * as yup from 'yup';  
 
-import { authServices } from '../../shared/services';
-
-import { FormValues } from '../../types/index';
+import { authServices } from '@shared/services/index';
 
 import { addUser } from '@store/user-slice';
 
 import { useAppDispatch } from 'src/hooks';
+
+import { FormValues } from '../../types/index';
 
 import {
 	Container,

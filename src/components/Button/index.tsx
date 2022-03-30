@@ -1,12 +1,13 @@
 import React from 'react';
+
 import { BsArrowRight, BsArrowLeft } from 'react-icons/bs';
-import { ButtonContainer } from './style';
+
 import { ButtonProps } from '../../types/index';
 
+import { ButtonContainer } from './style';
 
 function Button(props: ButtonProps): JSX.Element {
-
-	const showIcon = props.showIcon !== undefined ? props.showIcon : true
+	const showIcon = props.showIcon !== undefined ? props.showIcon : true;
 
 	const button =
 		props.arrow === 'left' ? (

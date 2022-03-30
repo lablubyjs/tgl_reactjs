@@ -1,12 +1,28 @@
-import { HeaderProps } from '../../types';
 import React, { useState } from 'react';
-import { HeaderContainer, Logo, Navigation, UserAccountContainer } from './styles';
 import { Link, useNavigate } from 'react-router-dom';
-import Button from '@components/Button';
-import { asyncAddUser, removeUser } from '@store/user-slice';
-import { useAppDispatch, useAppSelector } from 'src/hooks';
-import Modal from '@components/Modal';
+
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
+
 import { CgProfile } from 'react-icons/cg';
+
+import { asyncAddUser, removeUser } from '@store/user-slice';
+
+import { useAppDispatch, useAppSelector } from 'src/hooks';
+
+import { FormValues, HeaderProps } from '../../types';
+
+import { Button, Modal } from '@components/index';
+
+import { InputContainer } from '..';
+
+import {
+	HeaderContainer,
+	Logo,
+	Navigation,
+	UserAccountContainer,
+} from './styles';
 
 const Header = (props: HeaderProps) => {
 	const [showModal, setShowModal] = useState(false);
@@ -34,6 +50,24 @@ const Header = (props: HeaderProps) => {
 	const closeModal = () => {
 		setShowModal(false);
 	};
+
+	const onChangeMyAccountHandler = () => {};
+
+	const schema = yup.object().shape({
+		email: yup
+			.string()
+			.email('Invalid email')
+			.required('Please provide a valid email'),
+		name: yup.string().required('Enter a name'),
+	});
+
+	const {
+		register,
+		handleSubmit,
+		formState: { errors },
+	} = useForm<FormValues>({
+		resolver: yupResolver(schema),
+	});
 
 	return (
 		<HeaderContainer>
@@ -73,11 +107,29 @@ const Header = (props: HeaderProps) => {
 				<Modal onClose={closeModal}>
 					<UserAccountContainer>
 						<h1>My Account</h1>
-						{<div>{user.picture}</div>}
+						{user.picture && <div>{user.picture}</div>}
 						{!user.picture && <CgProfile />}
-						<h3>{user.name}</h3>
-						<h4>{user.email}</h4>
-						<button onClick={closeModal}>Close</button>
+						<form onSubmit={handleSubmit(onChangeMyAccountHandler)}>
+							<InputContainer error={errors.email}>
+								<input
+									placeholder='Email'
+									value={'user.email'}
+									{...register('email')}
+								/>
+							</InputContainer>
+							<InputContainer error={errors.password}>
+								<input
+									placeholder='Name'
+									value={user.name}
+									type='text'
+									{...register('name')}
+								/>
+							</InputContainer>
+							<div>
+								<button onClick={onChangeMyAccountHandler}>Change data</button>
+								<button onClick={closeModal}>Close</button>
+							</div>
+						</form>
 					</UserAccountContainer>
 				</Modal>
 			)}

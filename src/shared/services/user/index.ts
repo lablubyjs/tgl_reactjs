@@ -1,10 +1,12 @@
+import instance from '../axios.config';
+
 import {
 	IBodyUser,
 	ICreateUserResponse,
 	IMyAccountResponse,
 	IUpdateUserResponse,
 } from '@shared/interfaces';
-import instance from '../axios.config';
+
 import { IUser } from './interfaces';
 
 const userServices = (): IUser => {

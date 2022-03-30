@@ -1,20 +1,23 @@
-import Container from '@components/Container';
-import Content from '@components/Content';
-import Footer from '@components/Footer';
-import Form from '@components/Form';
-import Slogan from '@components/Slogan';
-import { ContainerForm, Title } from '@components/Form/style';
-import { yupResolver } from '@hookform/resolvers/yup';
-import InputContainer from '@components/InputContainer';
-import Button from '@components/Button';
-
-import { authServices } from '../../shared/services';
-
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
-import { useNavigate } from 'react-router-dom';
-import * as yup from 'yup';
 import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
+
+import {
+	Button,
+	Container,
+	Content,
+	Footer,
+	Form,
+	Slogan,
+	ContainerForm,
+	Title,
+	InputContainer,
+} from '@components/index';
+
+import { authServices } from '@shared/services/index';
 
 import { FormValues } from '../../types/index';
 

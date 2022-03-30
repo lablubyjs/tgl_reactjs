@@ -1,11 +1,5 @@
-import {
-	IListBetsResponse,
-	IListGamesReponse,
-	ILoginResponse,
-} from '@shared/interfaces';
 import React from 'react';
 import { FieldError } from 'react-hook-form';
-import { LinkProps } from 'react-router-dom';
 
 export type ButtonProps = {
 	arrow?: string;
@@ -18,8 +12,9 @@ export type ButtonProps = {
 
 export type FormValues = {
 	name?: string;
-	email: string;
+	email?: string;
 	password?: string;
+	confirmPassword?: string;
 };
 
 export type InputProps = {

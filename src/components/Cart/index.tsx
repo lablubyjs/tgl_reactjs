@@ -1,14 +1,27 @@
-import Button from '@components/Button';
-import EmptyMessage from '@components/EmptyMessage';
-import Modal from '@components/Modal';
 import React, { useState } from 'react';
-import { useAppDispatch, useAppSelector } from 'src/hooks';
-import valueFormat, {
+import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
+
+import { IoTrashOutline } from 'react-icons/io5';
+import { IoAlertCircleOutline } from 'react-icons/io5';
+
+import { betsServices } from '@shared/services/index';
+import {
+	formatNumbers,
+	formatValueToCurrency,
 	getGameColor,
 	getGameName,
 	getGamePrice,
 	getGamePriceNumber,
-} from 'src/utils';
+} from '@shared/utils/index';
+
+import { asyncAddBets } from '@store/bets-slice';
+import { emptyCart, removeToCart } from '@store/cart-slice';
+
+import { useAppDispatch, useAppSelector } from 'src/hooks';
+
+import { Button, EmptyMessage, Modal } from '@components/index';
+
 import {
 	ButtonSave,
 	ButtonTrash,
@@ -20,13 +33,6 @@ import {
 	ButtonModal,
 	ContentModal,
 } from './style';
-import { betsServices } from '@shared/services';
-import { toast } from 'react-toastify';
-import { asyncAddBets } from '@store/bets-slice';
-import { useNavigate } from 'react-router-dom';
-import { IoTrashOutline } from 'react-icons/io5';
-import { IoAlertCircleOutline } from 'react-icons/io5';
-import { emptyCart, removeToCart } from '@store/cart-slice';
 
 const Cart = () => {
 	const gamesInCart = useAppSelector((state) => state.cart.games);
@@ -75,7 +81,7 @@ const Cart = () => {
 						<IoAlertCircleOutline />
 						<p>
 							Your cart has a total{' '}
-							<strong>{valueFormat('PRICE', cartTotal.toString())} </strong>
+							<strong>{formatValueToCurrency(cartTotal.toString())} </strong>
 							of in games. Do you want to complete the buy?
 						</p>
 						<div>
@@ -94,10 +100,10 @@ const Cart = () => {
 						<IoAlertCircleOutline />
 						<p>
 							Minimum value of{' '}
-							<strong>{valueFormat('PRICE', minCartValue.toString())} </strong>
+							<strong>{formatValueToCurrency(minCartValue.toString())} </strong>
 							not reached, please add more{' '}
 							<strong>
-								{valueFormat('PRICE', (minCartValue - cartTotal).toString())}
+								{formatValueToCurrency((minCartValue - cartTotal).toString())}
 							</strong>{' '}
 							in games to cart to complete purchase
 						</p>
@@ -151,7 +157,7 @@ const Cart = () => {
 							</ButtonTrash>
 							<GameInfo color={getGameColor(games, game.game_id)}>
 								<p className='gameNumbers'>
-									{valueFormat('NUMBERS', game.numbers.join(','))}
+									{formatNumbers(game.numbers.join(','))}
 								</p>
 								<div>
 									<p className='gameName'>{getGameName(games, game.game_id)}</p>
@@ -166,7 +172,7 @@ const Cart = () => {
 			<CartTotal>
 				<p>
 					<strong>CART </strong> TOTAL:{' '}
-					{valueFormat('PRICE', cartTotal.toString())}
+					{formatValueToCurrency(cartTotal.toString())}
 				</p>
 			</CartTotal>
 

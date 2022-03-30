@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { FooterContainer, Text } from './style';
 
 function Footer(): JSX.Element {

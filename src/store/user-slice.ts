@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
+
 import { ILoginResponse } from '@shared/interfaces';
-import { userServices } from '@shared/services';
+import { userServices } from '@shared/services/index';
 
 const {myAccount} = userServices()
 

@@ -1,7 +1,10 @@
-import { EmptyMessageProps } from '../../types';
 import React from 'react';
+
 import { ImSad } from 'react-icons/im';
 import { BsCart3 } from 'react-icons/bs';
+
+import { EmptyMessageProps } from '../../types';
+
 import { MessageContainer } from './style';
 
 const EmptyMessage = (props: EmptyMessageProps) => {

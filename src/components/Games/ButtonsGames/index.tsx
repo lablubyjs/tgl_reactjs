@@ -1,7 +1,10 @@
-import { useAppDispatch, useAppSelector } from 'src/hooks';
 import ButtonGame from '../ButtonGame';
+
 import { addQuery, removeQuery } from '@store/bets-slice';
 import { selectGame } from '@store/games-slice';
+
+import { useAppDispatch, useAppSelector } from 'src/hooks';
+
 import { ButtonsGamesContainer } from './styles';
 
 const ButtonsGames = (): JSX.Element => {

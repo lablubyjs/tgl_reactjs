@@ -1,12 +1,8 @@
-import BetsContainer from '@components/BetsContainer';
-import Container from '@components/Container';
-import Footer from '@components/Footer';
-import Header from '@components/Header';
 import React from 'react';
-import { useAppDispatch, useAppSelector } from 'src/hooks';
+
+import { BetsContainer, Container, Footer, Header } from '@components/index';
 
 function Bets(): JSX.Element {
-
 	return (
 		<Container>
 			<Header showHomeLink={false} />
