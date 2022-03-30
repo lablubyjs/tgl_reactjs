@@ -32,7 +32,10 @@ const betsSlice = createSlice({
 			state.querys = state.querys.filter((query: string) => {
 				return query !== `type%5B%5D=${action.payload}&`;
 			});
-			console.log('remove', state.querys)
+		},
+
+		resetQuerys: (state) => {
+			state.querys = ['/bet/all-bets?'];
 		},
 	},
 
@@ -46,7 +49,7 @@ const betsSlice = createSlice({
 	},
 });
 
-export const { addBets, addQuery, removeQuery } = betsSlice.actions;
+export const { addBets, addQuery, removeQuery, resetQuerys } = betsSlice.actions;
 
 export default betsSlice.reducer;
 

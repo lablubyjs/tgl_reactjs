@@ -23,11 +23,19 @@ const cartSlice = createSlice({
 			console.log('add to cart');
 		},
 
-		removeToCart(state, action: PayloadAction<{index: number, price: number}>) {
+		removeToCart(
+			state,
+			action: PayloadAction<{ index: number; price: number }>
+		) {
 			state.games.splice(action.payload.index, 1);
 			state.cartTotal -= action.payload.price;
 
-			console.log(action.payload.price)
+			console.log(action.payload.price);
+		},
+
+		emptyCart(state) {
+			state.games = [];
+			state.cartTotal = 0;
 		},
 	},
 
@@ -38,7 +46,7 @@ const cartSlice = createSlice({
 	},
 });
 
-export const { addToCart, removeToCart } = cartSlice.actions;
+export const { addToCart, removeToCart, emptyCart } = cartSlice.actions;
 
 export default cartSlice.reducer;
 
