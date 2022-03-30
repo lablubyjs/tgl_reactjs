@@ -74,7 +74,7 @@ export default function Auth(): JSX.Element {
 			<Content>
 				<Slogan />
 				<ContainerForm>
-					<Title>Autentication</Title>
+					<Title>Authentication</Title>
 					<Form onSubmit={handleSubmit(onLoginHandler)}>
 						<InputContainer error={errors.email}>
 							<input placeholder='Email' {...register('email')} />
