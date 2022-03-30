@@ -9,13 +9,16 @@ import { asyncAddBets } from '@store/bets-slice';
 import { asyncAddMinCartValue } from '@store/cart-slice';
 
 function App() {
+	const token = localStorage.getItem('token');
 	const dispatch = useAppDispatch();
 	const url = useAppSelector((state) => state.bets.querys.join(''));
 
 	useEffect(() => {
-		dispatch(asyncAddGames());
-		dispatch(asyncAddBets(url));
-		dispatch(asyncAddMinCartValue());
+		if (token) {
+			dispatch(asyncAddGames());
+			dispatch(asyncAddBets(url));
+			dispatch(asyncAddMinCartValue());
+		}
 	}, []);
 
 	return (
