@@ -32,6 +32,41 @@ export const ContainerGames = styled.div`
 	button {
 		margin-right: 1rem;
 	}
+
+	@media (max-width: 1096px) {
+		padding: 1rem 3rem;
+	}
+
+	@media (max-width: 750px) {
+		h1 {
+			font-size: 18px;
+		}
+
+		h3,
+		h4,
+		p {
+			font-size: 13px;
+		}
+
+		button {
+			margin-right: 0.5rem;
+		}
+	}
+
+	@media (max-width: 400px) {
+		padding: auto;
+		min-height: 0;
+
+		h1 {
+			font-size: 15px;
+		}
+
+		h3,
+		h4,
+		p {
+			font-size: 10px;
+		}
+	}
 `;
 
 export const ButtonsActions = styled.div`
@@ -65,6 +100,26 @@ export const ButtonAction = styled.button<IButtonActionProps>`
 	svg {
 		font-size: 26px;
 	}
+
+	@media (max-width: 750px) {
+		width: ${(props) => props.width - 50}px;
+		height: 30px;
+		font-size: 8px;
+
+		svg {
+			font-size: 13px;
+		}
+	}
+
+	@media (max-width: 400px) {
+		width: ${(props) => props.width - 80}px;
+		height: 20px;
+		font-size: 7px;
+
+		svg {
+			font-size: 9px;
+		}
+	}
 `;
 
 export const ButtonNumber = styled.button<IButtonNumberProps>`
@@ -78,4 +133,16 @@ export const ButtonNumber = styled.button<IButtonNumberProps>`
 	height: 50px;
 	width: 50px;
 	margin-bottom: 0.5rem;
+
+	@media (max-width: 750px) {
+		height: 35px;
+		width: 35px;
+		font-size: 13px;
+	}
+
+	@media (max-width: 400px) {
+		height: 20px;
+		width: 20px;
+		font-size: 8px;
+	}
 `;

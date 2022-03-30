@@ -22,4 +22,18 @@ export const Button = styled.button<IButtonGameProps>`
 		color: var(--white);
 		background-color: ${(props) => props.color};
 	}
+
+	@media (max-width: 750px) {
+		width: 80px;
+		height: 20px;
+		font-size: 10px;
+		border: 1px solid ${(props) => props.color};
+	}
+
+	@media (max-width: 400px) {
+		width: 50px;
+		height: 15px;
+		font-size: 6px;
+		border: 1px solid ${(props) => props.color};
+	}
 `;

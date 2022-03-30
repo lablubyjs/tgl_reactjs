@@ -12,6 +12,14 @@ export const HeaderContainer = styled.header`
 	button {
 		padding: 0;
 	}
+
+	@media (max-width: 820px) {
+		height: 3rem;
+	}
+
+	@media (max-width: 400px) {
+		height: 2.5rem;
+	}
 `;
 
 export const Logo = styled.div`
@@ -41,6 +49,40 @@ export const Logo = styled.div`
 		padding-top: 0.2rem;
 		margin: 0;
 	}
+
+	@media (max-width: 820px) {
+		gap: 0.5rem;
+		margin-left: 3rem;
+
+		a {
+			font-size: 30px;
+		}
+
+		hr {
+			width: 5rem;
+			height: 0.25rem;
+			padding-top: 0.3rem;
+		}
+	}
+
+	@media (max-width: 400px) {
+		margin-left: 1.5rem;
+
+		a {
+			padding-top: 0.75rem;
+			font-size: 20px;
+		}
+
+		hr {
+			width: 3rem;
+			height: 0.05rem;
+			padding-top: 0.3rem;
+		}
+
+		button {
+			font-size: 8px;
+		}
+	}
 `;
 
 export const Navigation = styled.nav`
@@ -49,6 +91,15 @@ export const Navigation = styled.nav`
 	justify-content: flex-end;
 	gap: 4rem;
 	margin-right: 5rem;
+
+	@media (max-width: 400px) {
+		gap: 1rem;
+		margin-right: 2rem;
+
+		button {
+			font-size: 8px;
+		}
+	}
 `;
 
 export const UserAccountContainer = styled.div`
@@ -82,5 +133,15 @@ export const UserAccountContainer = styled.div`
 	button:hover {
 		color: var(--white);
 		background-color: var(--light-green);
+	}
+
+	@media (max-width: 500px) {
+		font-size: 10px;
+
+		button {
+			width: 60px;
+			height: 15px;
+			font-size: 10px;
+		}
 	}
 `;

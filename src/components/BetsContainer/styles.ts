@@ -9,6 +9,10 @@ export const ContainerBets = styled.div`
 
 		overflow: hidden;
 	}
+
+	@media (max-width: 800px) {
+		padding: 2rem 3rem;
+	}
 `;
 
 export const HeaderBets = styled.div`
@@ -17,21 +21,6 @@ export const HeaderBets = styled.div`
 	align-items: center;
 	margin-bottom: 2rem;
 	justify-content: space-between;
-
-	@media (max-width: 1030px) {
-		h1 {
-			font-size: 15px;
-		}
-
-		h3 {
-			font-size: 10px;
-		}
-	}
-
-	@media (max-width: 800px) {
-		flex-direction: column;
-		flex-wrap: wrap;
-	}
 
 	div {
 		display: inherit;
@@ -50,6 +39,35 @@ export const HeaderBets = styled.div`
 		font-size: 17px;
 		font-weight: normal;
 		padding-left: 3rem;
+	}
+
+	@media (max-width: 1030px) {
+		h1 {
+			font-size: 17px;
+		}
+
+		h3 {
+			font-size: 10px;
+			padding: 0.1rem;
+		}
+	}
+
+	@media (max-width: 800px) {
+		flex-direction: column;
+		flex-wrap: wrap;
+
+		div {
+			padding: 0;
+			flex-wrap: wrap;
+			align-items: center;
+			gap: 1rem;
+		}
+	}
+
+	@media (max-width: 400px) {
+		div {
+			gap: 0;
+		}
 	}
 `;
 
@@ -98,14 +116,62 @@ export const Bet = styled.div`
 		font-style: italic;
 		color: ${(props) => props.color};
 	}
+
+	@media (max-width: 1030px) {
+		h1 {
+			font-size: 17px;
+		}
+
+		h3 {
+			font-size: 10px;
+			padding: 0.1rem;
+		}
+	}
+
+	@media (max-width: 800px) {
+		flex-direction: column;
+		flex-wrap: wrap;
+
+		div {
+			padding: 0;
+			flex-wrap: wrap;
+			align-items: center;
+			gap: 1rem;
+		}
+
+		.content {
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			justify-content: space-between;
+		}
+
+		.numbers {
+			font-size: 15px;
+		}
+
+		.date-price {
+			font-size: 13px;
+		}
+
+		.type {
+			font-size: 15px;
+		}
+	}
+
+	@media (max-width: 400px) {
+		div {
+			gap: 0;
+		}
+	}
 `;
 
 export const ButtonsGamesContainer = styled.div`
-   margin: 1rem;
+	margin: 1rem;
 
-   button {
-      margin: 0.5rem;
-   }
+	button {
+		margin: 0.5rem;
+	}
 
 	@media (max-width: 1030px) {
 		margin: 0.5rem;
@@ -117,4 +183,4 @@ export const ButtonsGamesContainer = styled.div`
 			font-size: 10px;
 		}
 	}
-`
+`;

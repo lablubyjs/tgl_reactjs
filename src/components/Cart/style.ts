@@ -21,6 +21,26 @@ export const ContainerCart = styled.div`
 		margin: 1.5rem;
 		font-size: 24px;
 	}
+
+	@media (max-width: 1080px) {
+		width: 90%;
+	}
+
+	@media (max-width: 820px) {
+		width: 50%;
+		height: 100%;
+		margin: auto;
+
+		h1 {
+			font-size: 20px;
+		}
+	}
+
+	@media (max-width: 400px) {
+		h1 {
+			font-size: 15px;
+		}
+	}
 `;
 
 export const ButtonSave = styled.div`
@@ -31,6 +51,18 @@ export const ButtonSave = styled.div`
 	border: 2px solid var(--grey-button-save-border);
 	border-bottom-left-radius: inherit;
 	border-bottom-right-radius: inherit;
+
+	@media (max-width: 820px) {
+		button {
+			font-size: 20px;
+		}
+	}
+
+	@media (max-width: 400px) {
+		button {
+			font-size: 15px;
+		}
+	}
 `;
 
 export const CartTotal = styled.div`
@@ -40,6 +72,14 @@ export const CartTotal = styled.div`
 
 	strong {
 		font-style: italic;
+	}
+
+	@media (max-width: 500px) {
+		font-size: 15px;
+	}
+
+	@media (max-width: 400px) {
+		font-size: 13px;
 	}
 `;
 
@@ -71,6 +111,19 @@ export const Content = styled.div`
 	p {
 		margin: 0.5rem;
 	}
+
+	@media (max-width: 350px) {
+		font-size: 13px;
+
+		.gameName {
+			font-size: 10px;
+		}
+
+		.gameNumbers {
+			padding-left: 0.25rem;
+			font-size: 8px;
+		}
+	}
 `;
 
 export const GameInfo = styled.div<IContentProps>`
@@ -99,6 +152,32 @@ export const GameInfo = styled.div<IContentProps>`
 	.gameNumbers {
 		padding-left: 0.5rem;
 	}
+
+	@media (max-width: 500px) {
+		font-size: 15px;
+
+		.gameName {
+			font-size: 13px;
+		}
+
+		.gameNumbers {
+			padding-left: 0.25rem;
+		}
+	}
+
+	@media (max-width: 400px) {
+		font-size: 13px;
+
+		.gameName,
+		p {
+			font-size: 10px;
+		}
+
+		.gameNumbers {
+			padding-left: 0.25rem;
+			font-size: 8px;
+		}
+	}
 `;
 
 export const ButtonTrash = styled.button`
@@ -106,6 +185,10 @@ export const ButtonTrash = styled.button`
 	border: none;
 	font-size: 24px;
 	color: var(--grey);
+
+	@media (max-width: 400px) {
+		font-size: 15px;
+	}
 `;
 
 export const ContentModal = styled.div`
@@ -148,5 +231,16 @@ export const ButtonModal = styled.button`
 	:hover {
 		color: var(--white);
 		background-color: var(--green);
+	}
+
+	@media (max-width: 750px) {
+		width: 80px;
+		height: 25px;
+	}
+
+	@media (max-width: 500px) {
+		width: 50px;
+		height: 20px;
+		font-size: 8px;
 	}
 `;

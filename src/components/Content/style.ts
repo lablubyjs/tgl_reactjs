@@ -16,6 +16,15 @@ export const ContainerContent = styled.div<IContainerContentProps>`
 
 	@media (max-width: 820px) {
 		grid-template-columns: 1fr;
+		align-items: center;
+		justify-content: center;
 		padding: 0;
+		gap: 0;
+		
+	}
+
+	@media (max-width: 400px) {
+		justify-content: space-between;
+		width: 100vw;
 	}
 `;

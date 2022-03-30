@@ -22,4 +22,9 @@ export const ButtonContainer = styled.button<IButtonContainerProps>`
 	:hover {
 		transform: scale(1.1);
 	}
+
+	@media (max-width: 800px) {
+		padding: 0.5rem;
+		font-size: ${(p) => p.fontSize - 7}px;
+	}
 `;
