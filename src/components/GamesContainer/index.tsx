@@ -10,30 +10,12 @@ import {
 } from './style';
 import { BsCart3 } from 'react-icons/bs';
 import { addToCart } from '@store/cart-slice';
-import { getGameColor } from 'src/utils';
+import { completeArray, getGameColor } from 'src/utils';
 import Modal from '@components/Modal';
 import { ButtonModal, ContentModal } from '@components/Cart/style';
 import { IoAlertCircleOutline } from 'react-icons/io5';
-import { number } from 'yup/lib/locale';
 
-const generateNumbers = (maxNumber: number, length: number, range: number) => {
-	let toComplete = maxNumber - length;
-	const newNumbers: number[] = [];
-
-	while (newNumbers.length < toComplete) {
-		const number = Math.floor(Math.random() * range + 1);
-		console.log(newNumbers.indexOf(number));
-		console.log(number);
-		if (newNumbers.indexOf(number) === -1) {
-			newNumbers.push(number);
-			toComplete--;
-		}
-	}
-
-	return newNumbers;
-};
-
-const GamesContainer = () => {
+const GamesContainer = (): JSX.Element => {
 	const listGamesStore = useAppSelector((state) => state.games.list);
 	const gameSelect = useAppSelector((state) => state.games.currentGame);
 	const games = useAppSelector((state) => state.games.list);
@@ -94,17 +76,11 @@ const GamesContainer = () => {
 		}
 	};
 
-	console.log(numbers);
-
 	const completeGameHandler = () => {
 		if (numbers.length < gameSelect.max_number) {
 			setNumbers((prevState) => {
 				return prevState.concat(
-					generateNumbers(
-						gameSelect.max_number,
-						numbers.length,
-						gameSelect.range
-					)
+					completeArray(numbers, gameSelect.max_number, gameRange)
 				);
 			});
 		} else {
