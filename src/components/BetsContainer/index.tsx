@@ -1,19 +1,28 @@
 import Button from '@components/Button';
 import ButtonGame from '@components/Games/ButtonGame';
-import { addQuery, asyncAddBets, removeQuery } from '@store/bets-slice';
+import { addQuery, asyncAddBets, removeQuery, resetQuerys } from '@store/bets-slice';
 import React, { useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from 'src/hooks';
 import valueFormat, { getGameColor } from 'src/utils';
-import { Bet, ButtonsGamesContainer, ContainerBets, HeaderBets } from './styles';
+import {
+	Bet,
+	ButtonsGamesContainer,
+	ContainerBets,
+	HeaderBets,
+} from './styles';
 
 import EmptyMessage from '@components/EmptyMessage';
-import { selectGame } from '@store/games-slice';
+import { asyncAddGames, selectGame } from '@store/games-slice';
 
 const ButtonsGames = (): JSX.Element => {
 	const listGamesStore = useAppSelector((state) => state.games.list);
 	const dispatch = useAppDispatch();
 	const url = useAppSelector((state) => state.bets.querys.join(''));
+
+	useEffect(() => {
+		dispatch(asyncAddGames())
+	}, [])
 
 	return (
 		<ButtonsGamesContainer>
@@ -56,8 +65,8 @@ const BetsContainer = (): JSX.Element => {
 
 	const goToHandler = () => {
 		navigate('/games');
+		dispatch(resetQuerys());
 	};
-	
 
 	useEffect(() => {
 		dispatch(asyncAddBets(url));
