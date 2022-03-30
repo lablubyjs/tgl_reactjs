@@ -23,7 +23,10 @@ export default function Auth() {
 	const { resetPassword } = authServices();
 
 	const schema = yup.object().shape({
-		email: yup.string().email('Invalid email').required('Please provide a valid email'),
+		email: yup
+			.string()
+			.email('Invalid email')
+			.required('Please provide a valid email'),
 	});
 
 	const {
@@ -53,7 +56,9 @@ export default function Auth() {
 				}
 			);
 
-			navigate('/auth');
+			localStorage.setItem('token', response.token);
+
+			navigate('/change-password');
 		} catch (error: any) {
 			if (error.status === 404) {
 				toast.error(error.data.message);
