@@ -1,31 +1,41 @@
-import ButtonGame from '@components/Games/ButtonGame';
 import React, { useEffect, useState } from 'react';
+
+import { BsCart3 } from 'react-icons/bs';
+import { IoAlertCircleOutline } from 'react-icons/io5';
+
+import { selectedGame } from '@store/games-slice';
+import { addToCart } from '@store/cart-slice';
+
 import { useAppDispatch, useAppSelector } from 'src/hooks';
-import { selectedGame, selectGame } from '@store/games-slice';
+
+import { completeArray, getGameColor } from 'src/utils';
+
+import {
+	ButtonGame,
+	Modal,
+	ButtonModal,
+	ContentModal,
+} from '@components/index';
+
 import {
 	ButtonAction,
 	ButtonNumber,
 	ButtonsActions,
 	ContainerGames,
-} from './style';
-import { BsCart3 } from 'react-icons/bs';
-import { addToCart } from '@store/cart-slice';
-import { completeArray, getGameColor } from 'src/utils';
-import Modal from '@components/Modal';
-import { ButtonModal, ContentModal } from '@components/Cart/style';
-import { IoAlertCircleOutline } from 'react-icons/io5';
+} from './styles';
 
 const GamesContainer = (): JSX.Element => {
+
 	const listGamesStore = useAppSelector((state) => state.games.list);
 	const gameSelect = useAppSelector((state) => state.games.currentGame);
 	const games = useAppSelector((state) => state.games.list);
+
 	const dispatch = useAppDispatch();
 
 	const [gameName, setGameName] = useState('');
 	const [gameDescription, setGameDescription] = useState('');
 	const [gameRange, setGameRange] = useState(0);
 	const [numbers, setNumbers] = useState<number[]>([]);
-
 	const [modal, setModal] = useState(<Modal />);
 	const [showModal, setShowModal] = useState(false);
 
@@ -132,21 +142,45 @@ const GamesContainer = (): JSX.Element => {
 
 			{Array.from({ length: gameRange }).map((_, index) => {
 				let backgroundColor = '';
+				const indexNumber = index + 1
 
-				numbers.indexOf(index + 1) !== -1
+				numbers.indexOf(indexNumber) !== -1
 					? (backgroundColor = getGameColor(games, gameSelect.id))
 					: (backgroundColor = '');
 
 				const onClickButtonNumberHandler = () => {
-					if (numbers.indexOf(index + 1) === -1) {
+					if (
+						numbers.indexOf(indexNumber) === -1 &&
+						numbers.length < gameSelect.max_number
+					) {
 						setNumbers((prevState) => {
-							return [...prevState, index + 1];
+							return [...prevState, indexNumber];
 						});
+					} else if (
+						numbers.length === gameSelect.max_number &&
+						numbers.indexOf(indexNumber) === -1
+					) {
+						setShowModal(true);
+						setModal(
+							<Modal>
+								<ContentModal>
+									<IoAlertCircleOutline />
+									<p>
+										The game is complete, you can deselect a number by clicking
+										on it.
+									</p>
+									<div>
+										<ButtonModal onClick={() => setShowModal(false)}>
+											OK
+										</ButtonModal>
+									</div>
+								</ContentModal>
+							</Modal>
+						);
 					} else {
 						setNumbers((prevState) => {
-							return prevState.filter((item) => item !== index + 1);
+							return prevState.filter((item) => item !== indexNumber);
 						});
-						console.log('else do click');
 					}
 				};
 
