@@ -58,7 +58,6 @@ const Cart = () => {
 			dispatch(asyncAddBets('/bet/all-bets?'));
 			dispatch(emptyCart());
 			navigate('/home', { replace: true });
-			
 		} catch (error: any) {
 			if (error.status === 401) {
 				toast.error(error.data.message);
@@ -164,14 +163,12 @@ const Cart = () => {
 				})}
 			</GamesContainer>
 
-			{gamesInCart.length > 0 && (
-				<CartTotal>
-					<p>
-						<strong>CART </strong> TOTAL:{' '}
-						{valueFormat('PRICE', cartTotal.toString())}
-					</p>
-				</CartTotal>
-			)}
+			<CartTotal>
+				<p>
+					<strong>CART </strong> TOTAL:{' '}
+					{valueFormat('PRICE', cartTotal.toString())}
+				</p>
+			</CartTotal>
 
 			<ButtonSave>
 				<Button
