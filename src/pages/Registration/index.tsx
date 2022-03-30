@@ -21,7 +21,7 @@ import { userServices } from '@shared/services/index';
 
 import { FormValues } from '../../types/index';
 
-export default function Auth() {
+export default function Registration() {
 	const navigate = useNavigate();
 	const { createUser } = userServices();
 

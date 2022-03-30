@@ -21,7 +21,7 @@ import { authServices } from '@shared/services/index';
 
 import { FormValues } from '../../types/index';
 
-export default function Auth() {
+export default function ResetPassword() {
 	const navigate = useNavigate();
 	const { resetPassword } = authServices();
 

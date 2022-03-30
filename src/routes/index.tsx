@@ -1,12 +1,14 @@
 import React from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 
-import Auth from '@pages/Auth';
-import Bets from '@pages/Bets';
-import Game from '@pages/Game';
-import Registration from '@pages/Registration';
-import ResetPassword from '@pages/ResetPassword';
-import ChangePassword from '@pages/ChangePassword';
+import {
+	Auth,
+	Bets,
+	Game,
+	Registration,
+	ResetPassword,
+	ChangePassword,
+} from '@pages/index';
 
 import ProtectRouter from 'src/helper';
 
