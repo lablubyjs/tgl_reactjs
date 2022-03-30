@@ -26,7 +26,7 @@ import { asyncAddBets } from '@store/bets-slice';
 import { useNavigate } from 'react-router-dom';
 import { IoTrashOutline } from 'react-icons/io5';
 import { IoAlertCircleOutline } from 'react-icons/io5';
-import { removeToCart } from '@store/cart-slice';
+import { emptyCart, removeToCart } from '@store/cart-slice';
 
 const Cart = () => {
 	const gamesInCart = useAppSelector((state) => state.cart.games);
@@ -56,8 +56,9 @@ const Cart = () => {
 			});
 
 			dispatch(asyncAddBets('/bet/all-bets?'));
-
+			dispatch(emptyCart());
 			navigate('/home', { replace: true });
+			
 		} catch (error: any) {
 			if (error.status === 401) {
 				toast.error(error.data.message);
