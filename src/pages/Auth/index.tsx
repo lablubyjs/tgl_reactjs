@@ -1,24 +1,29 @@
-import Container from '@components/Container';
-import Content from '@components/Content';
-import Footer from '@components/Footer';
-import Form from '@components/Form';
-import Slogan from '@components/Slogan';
-import { ContainerForm, Title } from '@components/Form/style';
+import { useForm } from 'react-hook-form';
+import { toast } from 'react-toastify';
+import { Link, useNavigate } from 'react-router-dom';
+
 import { yupResolver } from '@hookform/resolvers/yup';
-import InputContainer from '@components/InputContainer';
-import Button from '@components/Button';
+import * as yup from 'yup';
 
 import { authServices } from '../../shared/services';
 
-import { toast } from 'react-toastify';
-
-import { Link, useNavigate } from 'react-router-dom';
-import * as yup from 'yup';
-import { useForm } from 'react-hook-form';
-
 import { FormValues } from '../../types/index';
+
 import { addUser } from '@store/user-slice';
+
 import { useAppDispatch } from 'src/hooks';
+
+import {
+	Container,
+	Content,
+	Footer,
+	Form,
+	Slogan,
+	InputContainer,
+	Button,
+	ContainerForm,
+	Title,
+} from '@components/index';
 
 export default function Auth(): JSX.Element {
 	const navigate = useNavigate();
@@ -26,8 +31,8 @@ export default function Auth(): JSX.Element {
 	const { login } = authServices();
 
 	const schema = yup.object().shape({
-		email: yup.string().email('Invalid email').required('Informe um email'),
-		password: yup.string().required('Informe a senha'),
+		email: yup.string().email('Invalid email').required('Please provide a valid email'),
+		password: yup.string().required('Enter a password'),
 	});
 
 	const {
@@ -50,9 +55,9 @@ export default function Auth(): JSX.Element {
 					password: data.password!,
 				}),
 				{
-					pending: 'Carregando',
-					success: 'Autenticado com sucesso',
-					error: 'Falha na autenticação',
+					pending: 'Loading',
+					success: 'Successfully authenticated',
+					error: 'Authentication failed',
 				}
 			);
 
@@ -61,7 +66,6 @@ export default function Auth(): JSX.Element {
 			localStorage.setItem('token', response.token.token);
 
 			navigate('/home', { replace: true });
-
 		} catch (error: any) {
 			if (error.status === 401) {
 				toast.error(error.data.message);

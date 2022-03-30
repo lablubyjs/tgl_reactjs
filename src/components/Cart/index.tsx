@@ -49,10 +49,10 @@ const Cart = () => {
 		console.log(gamesInCart);
 		setShowModal(false);
 		try {
-			const response = await toast.promise(newBet({ games: gamesInCart }), {
-				pending: 'Carregando',
-				success: 'Compra realizada com sucesso',
-				error: 'Falha na compra',
+			await toast.promise(newBet({ games: gamesInCart }), {
+				pending: 'Loading',
+				success: 'Purchase made successfully',
+				error: 'Purchase failure',
 			});
 
 			dispatch(asyncAddBets('/bet/all-bets?'));

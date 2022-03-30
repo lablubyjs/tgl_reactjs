@@ -23,9 +23,9 @@ export default function Auth() {
 	const { createUser } = userServices();
 
 	const schema = yup.object().shape({
-		email: yup.string().email('Invalid email').required('Informe um email'),
-		password: yup.string().required('Informe a senha'),
-		name: yup.string().required('Informe um nome'),
+		email: yup.string().email('Invalid email').required('Please provide a valid email'),
+		password: yup.string().required('Enter the password'),
+		name: yup.string().required('Enter a name'),
 	});
 
 	const {
@@ -44,23 +44,24 @@ export default function Auth() {
 		console.log(data);
 
 		try {
-			const response = await toast.promise(
+			await toast.promise(
 				createUser({
 					email: data.email,
 					password: data.password!,
 					name: data.name!,
 				}),
 				{
-					pending: 'Carregando',
-					success: 'Registrado com sucesso',
-					error: 'Falha no cadastro',
+					pending: 'Loading',
+					success: 'Successfully registered',
 				}
 			);
 
 			navigate('/auth');
 		} catch (error: any) {
-			if (error.status) {
-				toast.error(error.data.message);
+			if (error) {
+				Object.keys(error).map((msg) => {
+					toast.error(error[msg].message);
+				});
 			}
 		}
 	};

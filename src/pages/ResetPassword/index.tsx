@@ -23,7 +23,7 @@ export default function Auth() {
 	const { resetPassword } = authServices();
 
 	const schema = yup.object().shape({
-		email: yup.string().email('Invalid email').required('Informe um email'),
+		email: yup.string().email('Invalid email').required('Please provide a valid email'),
 	});
 
 	const {
@@ -47,9 +47,9 @@ export default function Auth() {
 					email: data.email,
 				}),
 				{
-					pending: 'Carregando',
-					success: 'Link enviado',
-					error: 'Falha no envio',
+					pending: 'Loading',
+					success: 'Link sent successfully',
+					error: 'Failure to send',
 				}
 			);
 
