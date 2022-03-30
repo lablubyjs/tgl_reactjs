@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
+
 import { IListBetsResponse } from '@shared/interfaces';
 import { betsServices } from '@shared/services/index';
 
