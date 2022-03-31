@@ -23,7 +23,7 @@ function App() {
 			dispatch(asyncAddBets(url));
 			dispatch(asyncAddMinCartValue());
 		}
-	}, []);
+	}, [dispatch]);
 
 	return (
 		<main>
