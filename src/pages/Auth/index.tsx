@@ -35,7 +35,7 @@ export default function Auth(): JSX.Element {
 		email: yup
 			.string()
 			.email('Invalid email')
-			.required('Please provide a valid email'),
+			.required('Please provide a email'),
 		password: yup.string().required('Enter a password'),
 	});
 

@@ -59,6 +59,7 @@ export const HeaderBets = styled.div`
 		div {
 			padding: 0;
 			flex-wrap: wrap;
+			justify-content: center;
 			align-items: center;
 			gap: 1rem;
 		}
@@ -67,6 +68,11 @@ export const HeaderBets = styled.div`
 	@media (max-width: 400px) {
 		div {
 			gap: 0;
+			margin: 0;
+		}
+
+		div button {
+			height: 1.5rem;
 		}
 	}
 `;

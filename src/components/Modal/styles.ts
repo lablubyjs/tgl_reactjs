@@ -2,7 +2,6 @@ import { ReactFragment } from 'react';
 import styled from 'styled-components';
 
 export const ModalContainer = styled.div<ReactFragment>`
-
 	display: flex;
 	align-content: center;
 	justify-content: center;
@@ -17,6 +16,7 @@ export const ModalContainer = styled.div<ReactFragment>`
 			transform: translateY(0);
 		}
 	}
+
 `;
 
 export const BackdropContainer = styled.div`
@@ -42,9 +42,12 @@ export const ModalOverlayContainer = styled.div`
 	animation: slide-down 300ms ease-out forwards;
 
 	@media (min-width: 768px) {
-		.modal {
-			width: 40rem;
-			left: calc(50% - 20rem);
-		}
+		width: 30rem;
+		left: calc(50% - 16rem);
+	}
+
+	@media (max-width: 650px) {
+		width: 70%;
+		left: calc(50% - 38%);
 	}
 `;

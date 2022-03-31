@@ -43,12 +43,14 @@ export const UserAccountContainer = styled.div`
 	}
 
 	@media (max-width: 500px) {
-		font-size: 10px;
+		h1, svg {
+			font-size: 15px;
+		}
 
 		button {
 			width: 60px;
-			height: 15px;
-			font-size: 10px;
+			height: 25px;
+			font-size: 8px;
 		}
 	}
 `;
