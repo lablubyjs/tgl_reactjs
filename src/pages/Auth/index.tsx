@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import * as yup from 'yup';  
+import * as yup from 'yup';
 
 import { authServices } from '@shared/services/index';
 
@@ -32,7 +32,10 @@ export default function Auth(): JSX.Element {
 	const { login } = authServices();
 
 	const schema = yup.object().shape({
-		email: yup.string().email('Invalid email').required('Please provide a valid email'),
+		email: yup
+			.string()
+			.email('Invalid email')
+			.required('Please provide a valid email'),
 		password: yup.string().required('Enter a password'),
 	});
 
@@ -62,14 +65,16 @@ export default function Auth(): JSX.Element {
 				}
 			);
 
-			dispatch(addUser(response));
+			await dispatch(addUser(response));
 
 			localStorage.setItem('token', response.token.token);
 
 			navigate('/home', { replace: true });
 		} catch (error: any) {
-			if (error.status === 401) {
-				toast.error(error.data.message);
+			if (error) {
+				Object.keys(error).map((msg) => {
+					toast.error(error[msg]);
+				});
 			}
 		}
 	};

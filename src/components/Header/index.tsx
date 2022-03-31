@@ -1,36 +1,21 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
-import { useForm } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
-import * as yup from 'yup';
-
-import { CgProfile } from 'react-icons/cg';
-
 import { asyncAddUser, removeUser } from '@store/user-slice';
 
 import { useAppDispatch, useAppSelector } from 'src/hooks';
 
-import { FormValues, HeaderProps } from '../../types';
+import { HeaderProps } from '../../types';
 
-import { Button, Modal } from '@components/index';
+import { Button, ButtonModal, Modal, UserAccount } from '@components/index';
 
-import { InputContainer } from '..';
-
-import {
-	HeaderContainer,
-	Logo,
-	Navigation,
-	UserAccountContainer,
-} from './styles';
+import { HeaderContainer, Logo, Navigation } from './styles';
 
 const Header = (props: HeaderProps) => {
 	const [showModal, setShowModal] = useState(false);
 
 	const dispatch = useAppDispatch();
 	const navigate = useNavigate();
-
-	const user = useAppSelector((state) => state.user.user);
 
 	const removeUserHandler = () => {
 		dispatch(removeUser());
@@ -41,33 +26,14 @@ const Header = (props: HeaderProps) => {
 		navigate('/home');
 	};
 
-	const goToAccountHandler = () => {
-		console.log(user);
+	const goToAccountHandler = async () => {
+		await dispatch(asyncAddUser());
 		setShowModal(true);
-		dispatch(asyncAddUser());
 	};
 
 	const closeModal = () => {
 		setShowModal(false);
 	};
-
-	const onChangeMyAccountHandler = () => {};
-
-	const schema = yup.object().shape({
-		email: yup
-			.string()
-			.email('Invalid email')
-			.required('Please provide a valid email'),
-		name: yup.string().required('Enter a name'),
-	});
-
-	const {
-		register,
-		handleSubmit,
-		formState: { errors },
-	} = useForm<FormValues>({
-		resolver: yupResolver(schema),
-	});
 
 	return (
 		<HeaderContainer>
@@ -105,32 +71,10 @@ const Header = (props: HeaderProps) => {
 
 			{showModal && (
 				<Modal onClose={closeModal}>
-					<UserAccountContainer>
-						<h1>My Account</h1>
-						{user.picture && <div>{user.picture}</div>}
-						{!user.picture && <CgProfile />}
-						<form onSubmit={handleSubmit(onChangeMyAccountHandler)}>
-							<InputContainer error={errors.email}>
-								<input
-									placeholder='Email'
-									value={'user.email'}
-									{...register('email')}
-								/>
-							</InputContainer>
-							<InputContainer error={errors.password}>
-								<input
-									placeholder='Name'
-									value={user.name}
-									type='text'
-									{...register('name')}
-								/>
-							</InputContainer>
-							<div>
-								<button onClick={onChangeMyAccountHandler}>Change data</button>
-								<button onClick={closeModal}>Close</button>
-							</div>
-						</form>
-					</UserAccountContainer>
+					<UserAccount />
+					<div style={{ textAlign: 'center', margin: 0 }}>
+						<ButtonModal onClick={closeModal}>Close</ButtonModal>
+					</div>
 				</Modal>
 			)}
 		</HeaderContainer>

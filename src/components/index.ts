@@ -16,6 +16,7 @@ import Header from './Header';
 import InputContainer from './InputContainer';
 import Modal from './Modal';
 import Slogan from './Slogan';
+import UserAccount from './UserAccount'
 
 export {
 	BetsContainer,
@@ -37,4 +38,5 @@ export {
 	InputContainer,
 	Modal,
 	Slogan,
+	UserAccount
 };
