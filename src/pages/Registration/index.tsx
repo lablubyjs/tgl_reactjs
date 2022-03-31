@@ -47,8 +47,6 @@ export default function Registration() {
 	};
 
 	const onRegistrationHandler = async (data: FormValues) => {
-		console.log(data);
-
 		try {
 			await toast.promise(
 				createUser({

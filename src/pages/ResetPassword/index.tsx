@@ -45,8 +45,6 @@ export default function ResetPassword() {
 	};
 
 	const onResetPasswordHandler = async (data: FormValues) => {
-		console.log(data);
-
 		try {
 			const response = await toast.promise(
 				resetPassword({

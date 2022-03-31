@@ -19,7 +19,6 @@ instance.interceptors.request.use(
 		return config;
 	},
 	function (error: AxiosError) {
-		console.log('error no interceptor', error);
 		return Promise.reject(error);
 	}
 );
@@ -29,7 +28,6 @@ instance.interceptors.response.use(
 		return response.data;
 	},
 	function (error: AxiosError) {
-		console.log('error no interceptor', error);
 		if (error.response) {
 			const handlerError = error.response.data;
 			return Promise.reject(handlerError);

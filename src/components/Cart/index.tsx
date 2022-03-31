@@ -52,7 +52,6 @@ const Cart = () => {
 	};
 
 	const confirmBuy = async () => {
-		console.log(gamesInCart);
 		setShowModal(false);
 		try {
 			await toast.promise(newBet({ games: gamesInCart }), {
@@ -73,7 +72,6 @@ const Cart = () => {
 
 	const goToCartHandler = () => {
 		if (cartTotal >= minCartValue) {
-			console.log('confirmar', cartTotal, cartModal, showModal);
 			setShowModal(true);
 			setCartModal(
 				<Modal onClose={closeModal}>
@@ -92,7 +90,6 @@ const Cart = () => {
 				</Modal>
 			);
 		} else {
-			console.log('ainda falta', cartTotal, minCartValue - cartTotal);
 			setShowModal(true);
 			setCartModal(
 				<Modal onClose={closeModal}>

@@ -20,8 +20,6 @@ const cartSlice = createSlice({
 		addToCart(state, action: PayloadAction<{ game: IGame; price: number }>) {
 			state.games.push(action.payload.game);
 			state.cartTotal += action.payload.price;
-
-			console.log('add to cart');
 		},
 
 		removeToCart(
@@ -30,8 +28,6 @@ const cartSlice = createSlice({
 		) {
 			state.games.splice(action.payload.index, 1);
 			state.cartTotal -= action.payload.price;
-
-			console.log(action.payload.price);
 		},
 
 		emptyCart(state) {

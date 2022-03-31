@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const UserAccountContainer = styled.div`
 	display: flex;
@@ -43,7 +43,8 @@ export const UserAccountContainer = styled.div`
 	}
 
 	@media (max-width: 500px) {
-		h1, svg {
+		h1,
+		svg {
 			font-size: 15px;
 		}
 
