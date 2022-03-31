@@ -10,7 +10,7 @@ import {
 	ChangePassword,
 } from '@pages/index';
 
-import ProtectRouter from 'src/helper';
+import { ProtectRouter } from '@components/index';
 
 export default function ContainerRoutes() {
 	const token = localStorage.getItem('token');

@@ -17,6 +17,7 @@ import InputContainer from './InputContainer';
 import Modal from './Modal';
 import Slogan from './Slogan';
 import UserAccount from './UserAccount'
+import ProtectRouter from './ProtectRoute';
 
 export {
 	BetsContainer,
@@ -38,5 +39,6 @@ export {
 	InputContainer,
 	Modal,
 	Slogan,
-	UserAccount
+	UserAccount,
+	ProtectRouter
 };
