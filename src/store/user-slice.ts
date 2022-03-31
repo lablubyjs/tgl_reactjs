@@ -45,8 +45,6 @@ const userSlice = createSlice({
 			asyncAddUser.fulfilled,
 			(state, action) => {
 				state.user = action.payload;
-				console.log('adding user', action.payload)
-				console.log(state)
 			}
 		);
 	},

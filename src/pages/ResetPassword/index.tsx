@@ -53,7 +53,6 @@ export default function ResetPassword() {
 				{
 					pending: 'Loading',
 					success: 'Link sent successfully',
-					error: 'Failure to send',
 				}
 			);
 
@@ -61,8 +60,10 @@ export default function ResetPassword() {
 
 			navigate('/change-password');
 		} catch (error: any) {
-			if (error.status === 404) {
-				toast.error(error.data.message);
+			if (error) {
+				Object.keys(error).map((msg) => {
+					toast.error(error[msg]);
+				});
 			}
 		}
 	};

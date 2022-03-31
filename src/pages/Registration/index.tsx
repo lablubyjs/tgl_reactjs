@@ -67,6 +67,10 @@ export default function Registration() {
 					toast.error(error[msg].message);
 				});
 			}
+
+			setTimeout(() => {
+				window.location.reload();
+			}, 2000);
 		}
 	};
 
@@ -77,7 +81,7 @@ export default function Registration() {
 				<ContainerForm>
 					<Title>Registration</Title>
 					<Form onSubmit={handleSubmit(onRegistrationHandler)}>
-						<InputContainer error={errors.email}>
+						<InputContainer error={errors.name}>
 							<input placeholder='Nome' {...register('name')} />
 						</InputContainer>
 						<InputContainer error={errors.email}>

@@ -60,8 +60,7 @@ export default function Auth(): JSX.Element {
 				}),
 				{
 					pending: 'Loading',
-					success: 'Successfully authenticated',
-					error: 'Authentication failed',
+					success: 'Successfully authenticated'
 				}
 			);
 

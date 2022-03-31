@@ -27,7 +27,7 @@ export default function ChangePassword(): JSX.Element {
 	const { changePassword } = authServices();
 
 	const goToHandler = () => {
-		navigate('/auth');
+		navigate('/reset-password');
 	};
 
 	const schema = yup.object().shape({
@@ -95,8 +95,8 @@ export default function ChangePassword(): JSX.Element {
 						/>
 					</Form>
 					<Button
-						goTo='Sing In'
-						arrow='rigth'
+						goTo='Back'
+						arrow='left'
 						onGoTo={goToHandler}
 						fontSize={35}
 						color='var(--grey)'
