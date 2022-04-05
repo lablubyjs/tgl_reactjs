@@ -128,6 +128,7 @@ const GamesContainer = (): JSX.Element => {
 				return (
 					<ButtonGame
 						onClick={OnClickHandler}
+						id={listGamesStore[key].id}
 						key={listGamesStore[key].id}
 						name={listGamesStore[key].type}
 						color={listGamesStore[key].color}

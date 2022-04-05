@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 import {
@@ -54,6 +54,7 @@ const ButtonsGames = (): JSX.Element => {
 					<ButtonGame
 						onClick={OnClickHandler}
 						key={listGamesStore[key].id}
+						id={listGamesStore[key].id}
 						name={listGamesStore[key].type}
 						color={listGamesStore[key].color}
 						isSelected={listGamesStore[key].isSelected ? true : false}
@@ -102,32 +103,34 @@ const BetsContainer = (): JSX.Element => {
 				/>
 			</HeaderBets>
 
-			{Object.keys(bets).map((key) => {
-				return (
-					<Bet key={key} color={getGameColor(games, bets[key].type.id)}>
-						<hr />
-						<div className='content'>
-							<p className='numbers'>
-								{formatNumbers(bets[key].choosen_numbers)}
-							</p>
-							<p className='date-price'>
-								{formatDate(bets[key].created_at)} - (
-								{formatValueToCurrency(bets[key].price)})
-							</p>
-							<p className='type'>{bets[key].type.type}</p>
-						</div>
-					</Bet>
-				);
-			})}
+			<div>
+				{Object.keys(bets).map((key) => {
+					return (
+						<Bet key={key} color={getGameColor(games, bets[key].type.id)}>
+							<hr />
+							<div className='content'>
+								<p className='numbers'>
+									{formatNumbers(bets[key].choosen_numbers)}
+								</p>
+								<p className='date-price'>
+									{formatDate(bets[key].created_at)} - (
+									{formatValueToCurrency(bets[key].price)})
+								</p>
+								<p className='type'>{bets[key].type.type}</p>
+							</div>
+						</Bet>
+					);
+				})}
 
-			{Object.keys(bets).length === 0 && (
-				<EmptyMessage
-					message={`You don't have any bets yet...`}
-					type='BET'
-					fontSize={30}>
-					<Link to='/games'>Choose a bet?</Link>
-				</EmptyMessage>
-			)}
+				{Object.keys(bets).length === 0 && (
+					<EmptyMessage
+						message={`You don't have any bets yet...`}
+						type='BET'
+						fontSize={30}>
+						<Link to='/games'>Choose a bet?</Link>
+					</EmptyMessage>
+				)}
+			</div>
 		</ContainerBets>
 	);
 };

@@ -31,6 +31,7 @@ export type HeaderProps = {
 };
 
 export type ButtonGameProps = {
+	id: any,
 	name: string;
 	color: string;
 	isSelected: boolean;
